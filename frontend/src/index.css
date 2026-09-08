@@ -1,0 +1,51 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-surface text-brand-950 antialiased;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+}
+
+/* Leaflet's default marker icons reference image files that don't survive a
+   bundler's asset pipeline the way Leaflet expects - MapView.jsx fixes the
+   icon URLs in JS, this just makes sure the popup/tooltip chrome matches
+   the app's rounded, card-based look. */
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+}
+
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+  background: #eef2ea;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 42, 30, 0.25);
+  border-radius: 8px;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
